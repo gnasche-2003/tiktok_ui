@@ -21,9 +21,13 @@
 
 .icon + .title,
 .title + .icon {
-  width: 16px;
-  height: 16px;
   margin-left: 8px;
+}
+
+.icon {
+  display: inline-block;
+  width: 24px;
+  text-align: center;
 }
 
 // Button types
@@ -67,8 +71,6 @@
     background-color: rgba(22, 24, 35, 0.03);
   }
 }
-
-// Disabled
 
 // Button sizes
 .small {

@@ -1,3 +1,10 @@
+// Responsive temporary
+@media (max-width: 1040px) {
+  .wrapper-logo {
+    max-width: 200px;
+  }
+}
+
 .wrapper {
   --search-border-radius: 92px;
   --search-height: 46px;
@@ -14,9 +21,15 @@
 .inner {
   height: 100%;
   width: var(--default-layout-width);
+  padding: 0 var(--default-layout-horizontal-spacer-right) 0 var(--default-layout-horizontal-spacer-left);
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.wrapper-logo {
+  width: 300px;
+  max-height: 42px;
 }
 
 .search,
@@ -106,4 +119,5 @@
   margin-left: 28px;
   padding: 4px 8px;
   background-color: transparent;
+  cursor: pointer;
 }

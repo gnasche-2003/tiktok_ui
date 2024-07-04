@@ -1,4 +1,6 @@
+import classNames from 'classnames/bind';
 import Tippy from '@tippyjs/react/headless';
+import { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faAdd,
@@ -11,12 +13,9 @@ import {
   faSpinner,
 } from '@fortawesome/free-solid-svg-icons';
 
-import { useEffect, useState } from 'react';
-
-import classNames from 'classnames/bind';
-import styles from './Header.module.scss';
-import Button from '~/components/Button';
 import images from '~/assets/images';
+import Button from '~/components/Button';
+import styles from './Header.module.scss';
 import Menu from '~/components/Popper/Menu';
 import AccountItem from '~/components/AccountItem';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
@@ -27,6 +26,21 @@ const MENU_ITEMS = [
   {
     icon: <FontAwesomeIcon icon={faEarthAsia} />,
     title: 'English',
+    children: {
+      title: 'Language',
+      data: [
+        {
+          type: 'language',
+          code: 'en',
+          title: 'English',
+        },
+        {
+          type: 'language',
+          code: 'vi',
+          title: 'Tiếng Việt',
+        },
+      ],
+    },
   },
   {
     icon: <FontAwesomeIcon icon={faCircleQuestion} />,
@@ -48,10 +62,17 @@ function Header() {
     }, 0);
   }, []);
 
+  // Handle Logic
+  const handleMenuChange = (menuItem) => {
+    console.log(menuItem);
+  };
+
   return (
     <header className={cx('wrapper')}>
       <div className={cx('inner')}>
-        <img src={images.logo} alt="Logo" />
+        <div className={cx('wrapper-logo')}>
+          <img src={images.logo} alt="Logo" />
+        </div>
 
         <Tippy
           interactive
@@ -87,7 +108,7 @@ function Header() {
           </Button>
           <Button primary>Log In</Button>
 
-          <Menu items={MENU_ITEMS}>
+          <Menu items={MENU_ITEMS} onChange={handleMenuChange}>
             <button className={cx('more-btn')}>
               <FontAwesomeIcon icon={faEllipsisVertical} />
             </button>

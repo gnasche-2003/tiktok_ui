@@ -109,9 +109,36 @@
   }
 }
 
+// Actions
+.actions {
+  display: flex;
+  align-items: center;
+}
+
 .add {
   width: 16px;
   height: 16px;
+}
+
+.actions-btn {
+  font-size: 2.2rem;
+  color: #161823;
+  background-color: transparent;
+  padding: 4px 12px;
+  cursor: pointer;
+}
+
+.actions-btn:nth-child(2n) {
+  margin-left: 16px;
+}
+
+.user-avatar {
+  width: 32px;
+  height: 32px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-left: 16px;
+  cursor: pointer;
 }
 
 .more-btn {

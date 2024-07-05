@@ -1,35 +1,41 @@
-import classNames from 'classnames/bind';
 import Tippy from '@tippyjs/react';
-import HeadlessTippy from '@tippyjs/react/headless';
+import classNames from 'classnames/bind';
 import 'tippy.js/dist/tippy.css';
+import HeadlessTippy from '@tippyjs/react/headless';
 
 import { useEffect, useState } from 'react';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faAdd,
-  faUser,
-  faCoins,
   faSpinner,
-  faMessage,
-  faKeyboard,
-  faEarthAsia,
-  faPaperPlane,
   faCircleXmark,
-  faCircleQuestion,
   faMagnifyingGlass,
   faEllipsisVertical,
-  faBookBookmark,
-  faVideo,
-  faLightbulb,
-  faGear,
-  faMoon,
-  faArrowRightFromBracket,
 } from '@fortawesome/free-solid-svg-icons';
 
 import images from '~/assets/images';
+import Image from '~/components/Image';
 import Button from '~/components/Button';
 import styles from './Header.module.scss';
 import Menu from '~/components/Popper/Menu';
+
+import {
+  HubIcon,
+  CoinIcon,
+  DarkIcon,
+  InboxIcon,
+  StudioIcon,
+  LogOutIcon,
+  MessageIcon,
+  ProfileIcon,
+  FavoriteIcon,
+  KeyboardIcon,
+  LanguageIcon,
+  SettingsIcon,
+  FeedbackAndHelpIcon,
+} from '~/components/Icons';
+
 import AccountItem from '~/components/AccountItem';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 
@@ -37,7 +43,13 @@ const cx = classNames.bind(styles);
 
 const MENU_ITEMS = [
   {
-    icon: <FontAwesomeIcon icon={faEarthAsia} />,
+    icon: <HubIcon />,
+    title: 'LIVE Creator Hub',
+    to: '/hub',
+  },
+
+  {
+    icon: <LanguageIcon />,
     title: 'English',
     children: {
       title: 'Language',
@@ -55,14 +67,41 @@ const MENU_ITEMS = [
       ],
     },
   },
+
   {
-    icon: <FontAwesomeIcon icon={faCircleQuestion} />,
+    icon: <FeedbackAndHelpIcon />,
     title: 'Feedback and help',
     to: '/feedback',
   },
+
   {
-    icon: <FontAwesomeIcon icon={faKeyboard} />,
+    icon: <KeyboardIcon />,
     title: 'Keyboard shortcuts',
+  },
+
+  {
+    icon: <DarkIcon />,
+    title: 'Dark mode',
+    children: {
+      title: 'State Mode',
+      data: [
+        {
+          type: 'state',
+          code: 'auto',
+          title: 'Use device theme',
+        },
+        {
+          type: 'state',
+          code: 'dark',
+          title: 'Dark mode',
+        },
+        {
+          type: 'state',
+          code: 'white',
+          title: 'White mode',
+        },
+      ],
+    },
   },
 ];
 
@@ -83,70 +122,39 @@ function Header() {
 
   const userMenu = [
     {
-      icon: <FontAwesomeIcon icon={faUser} />,
+      icon: <ProfileIcon />,
       title: 'View profile',
       to: '/profile',
     },
 
     {
-      icon: <FontAwesomeIcon icon={faBookBookmark} />,
+      icon: <FavoriteIcon />,
       title: 'Favorites',
       to: '/favorites',
     },
 
     {
-      icon: <FontAwesomeIcon icon={faCoins} />,
+      icon: <CoinIcon />,
       title: 'Get Coins',
       to: '/coins',
     },
 
     {
-      icon: <FontAwesomeIcon icon={faVideo} />,
+      icon: <StudioIcon />,
       title: 'LIVE Studio',
       to: '/studio',
-    },
-
-    {
-      icon: <FontAwesomeIcon icon={faLightbulb} />,
-      title: 'LIVE Creator Hub',
-      to: '/hub',
-    },
-
-    {
-      icon: <FontAwesomeIcon icon={faGear} />,
-      title: 'Settings',
-      to: '/settings',
     },
 
     ...MENU_ITEMS,
 
     {
-      icon: <FontAwesomeIcon icon={faMoon} />,
-      title: 'Dark mode',
-      children: {
-        title: 'State Mode',
-        data: [
-          {
-            type: 'state',
-            code: 'auto',
-            title: 'Use device theme',
-          },
-          {
-            type: 'state',
-            code: 'dark',
-            title: 'Dark mode',
-          },
-          {
-            type: 'state',
-            code: 'white',
-            title: 'White mode',
-          },
-        ],
-      },
+      icon: <SettingsIcon />,
+      title: 'Settings',
+      to: '/settings',
     },
 
     {
-      icon: <FontAwesomeIcon icon={faArrowRightFromBracket} />,
+      icon: <LogOutIcon />,
       title: 'Log out',
       to: '/logout',
       separate: true,
@@ -194,15 +202,16 @@ function Header() {
                 Upload
               </Button>
 
-              <Tippy delay={[0, 200]} content="Messages" placement="bottom">
+              <Tippy delay={[0, 50]} content="Messages" placement="bottom">
                 <button className={cx('actions-btn')}>
-                  <FontAwesomeIcon icon={faPaperPlane} />
+                  <MessageIcon />
                 </button>
               </Tippy>
 
-              <Tippy delay={[0, 200]} content="Inbox" placement="bottom">
+              <Tippy delay={[0, 40]} content="Inbox" placement="bottom">
                 <button className={cx('actions-btn')}>
-                  <FontAwesomeIcon icon={faMessage} />
+                  <InboxIcon />
+                  <span className={cx('badge')}>12</span>
                 </button>
               </Tippy>
             </>
@@ -218,7 +227,7 @@ function Header() {
 
           <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
             {currentUser ? (
-              <img
+              <Image
                 className={cx('user-avatar')}
                 src="https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/6e2ffe753e3fbb9269e79b7dc94f1e04.jpeg?lk3s=a5d48078&nonce=7781&refresh_token=6c6113d4d12448b6c1764b8dd86f8e6a&x-expires=1720270800&x-signature=RLCPuco0bZ3bZ66%2Fe5IulbcJhkk%3D&shp=a5d48078&shcp=81f88b70"
                 alt="Gnasche"

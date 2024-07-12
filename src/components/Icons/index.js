@@ -1,6 +1,6 @@
 export const MessageIcon = ({ width = '2.6rem', height = '2.6rem', className }) => (
   <svg
-    class={className}
+    className={className}
     width={width}
     height={height}
     data-e2e
@@ -18,7 +18,7 @@ export const MessageIcon = ({ width = '2.6rem', height = '2.6rem', className }) 
 
 export const InboxIcon = ({ width = '3.2rem', height = '3.2rem', className }) => (
   <svg
-    class={className}
+    className={className}
     width={width}
     height={height}
     data-e2e
@@ -36,7 +36,7 @@ export const InboxIcon = ({ width = '3.2rem', height = '3.2rem', className }) =>
 
 export const ProfileIcon = ({ width = '2rem', height = '2rem', className }) => (
   <svg
-    class={className}
+    className={className}
     width={width}
     height={height}
     data-e2e
@@ -54,7 +54,7 @@ export const ProfileIcon = ({ width = '2rem', height = '2rem', className }) => (
 
 export const FavoriteIcon = ({ width = '2rem', height = '2rem', className }) => (
   <svg
-    class={className}
+    className={className}
     width={width}
     height={height}
     data-e2e
@@ -72,7 +72,7 @@ export const FavoriteIcon = ({ width = '2rem', height = '2rem', className }) => 
 
 export const CoinIcon = ({ width = '2rem', height = '2rem', className }) => (
   <svg
-    class={className}
+    className={className}
     width={width}
     height={height}
     data-e2e
@@ -95,7 +95,7 @@ export const CoinIcon = ({ width = '2rem', height = '2rem', className }) => (
 
 export const StudioIcon = ({ width = '2rem', height = '2rem', className }) => (
   <svg
-    class={className}
+    className={className}
     width={width}
     height={height}
     data-e2e
@@ -142,7 +142,7 @@ export const HubIcon = ({ width = '2rem', height = '2rem', className }) => (
 
 export const SettingsIcon = ({ width = '2rem', height = '2rem', className }) => (
   <svg
-    class={className}
+    className={className}
     width={width}
     height={height}
     data-e2e
@@ -160,7 +160,7 @@ export const SettingsIcon = ({ width = '2rem', height = '2rem', className }) => 
 
 export const LanguageIcon = ({ width = '2rem', height = '2rem', className }) => (
   <svg
-    class={className}
+    className={className}
     width={width}
     height={height}
     data-e2e
@@ -178,7 +178,7 @@ export const LanguageIcon = ({ width = '2rem', height = '2rem', className }) => 
 
 export const FeedbackAndHelpIcon = ({ width = '2rem', height = '2rem', className }) => (
   <svg
-    class={className}
+    className={className}
     width={width}
     height={height}
     data-e2e
@@ -196,7 +196,7 @@ export const FeedbackAndHelpIcon = ({ width = '2rem', height = '2rem', className
 
 export const KeyboardIcon = ({ width = '2rem', height = '2rem', className }) => (
   <svg
-    class={className}
+    className={className}
     width={width}
     height={height}
     data-e2e
@@ -214,7 +214,7 @@ export const KeyboardIcon = ({ width = '2rem', height = '2rem', className }) => 
 
 export const DarkIcon = ({ width = '2rem', height = '2rem', className }) => (
   <svg
-    class={className}
+    className={className}
     width={width}
     height={height}
     data-e2e
@@ -232,7 +232,7 @@ export const DarkIcon = ({ width = '2rem', height = '2rem', className }) => (
 
 export const LogOutIcon = ({ width = '2rem', height = '2rem', className }) => (
   <svg
-    class={className}
+    className={className}
     width={width}
     height={height}
     data-e2e

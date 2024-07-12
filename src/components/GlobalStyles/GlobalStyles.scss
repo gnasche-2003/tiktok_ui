@@ -7,7 +7,6 @@
   --white-color: #fff;
   --text-color: #161823;
   --font-family: 'IBM Plex Sans', san-serif;
-  --scrollbar-color: rgba(240, 240, 240, 0.9);
 
   // Default Layout
   --default-layout-header-height: 60px;
@@ -34,6 +33,37 @@ body {
   color: var(--text-color);
 }
 
+// Scrollbar CSS
+html ::-webkit-scrollbar {
+  border-radius: 0px;
+  width: 8px;
+}
+
+html *::-webkit-scrollbar {
+  border-radius: 0;
+  width: 8px;
+}
+
+html ::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(22, 24, 35, 0.06);
+}
+
+html *::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(22, 24, 35, 0.06);
+}
+
+html ::-webkit-scrollbar-track {
+  border-radius: 0px;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+html *::-webkit-scrollbar-track {
+  border-radius: 0;
+  background-color: rgba(0, 0, 0, 0);
+}
+
 button,
 input,
 [tabindex] {
@@ -56,6 +86,7 @@ body {
     font-size: 1.6rem;
     line-height: 2.2rem;
     background-color: rgba(84, 84, 84, 0.92);
+    overflow-y: overlay;
   }
 
   .tippy-arrow {
@@ -69,27 +100,4 @@ body {
   .tippy-box[data-placement^='bottom'] > .tippy-arrow {
     top: -1px;
   }
-}
-
-// Customs scrollbar mac styles
-body::-webkit-scrollbar {
-  background-color: var(--white-color);
-  width: 16px;
-}
-
-/* background of the scrollbar except button or resizer */
-body::-webkit-scrollbar-track {
-  background-color: inherit;
-}
-
-/* scrollbar itself */
-body::-webkit-scrollbar-thumb {
-  background-color: var(--scrollbar-color);
-  border-radius: 16px;
-  border: 4px solid #fff;
-}
-
-/* set button(top and bottom of the scrollbar) */
-body::-webkit-scrollbar-button {
-  display: none;
 }

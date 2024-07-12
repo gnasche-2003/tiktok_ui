@@ -1,7 +1,8 @@
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
-import styles from './Header.module.scss';
+import { Link } from 'react-router-dom';
 import classNames from 'classnames/bind';
+import styles from './Header.module.scss';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAdd, faEllipsisVertical } from '@fortawesome/free-solid-svg-icons';
@@ -26,6 +27,7 @@ import Search from '../Search';
 import images from '~/assets/images';
 import Image from '~/components/Image';
 import Button from '~/components/Button';
+import routesConfig from '~/config/routes';
 import Menu from '~/components/Popper/Menu';
 
 const cx = classNames.bind(styles);
@@ -99,7 +101,12 @@ function Header() {
 
   // Handle Logic
   const handleMenuChange = (menuItem) => {
-    console.log(menuItem);
+    switch (menuItem.type) {
+      case 'language':
+        // Handle change language
+        break;
+      default:
+    }
   };
 
   const userMenu = [
@@ -147,7 +154,9 @@ function Header() {
     <header className={cx('wrapper')}>
       <div className={cx('inner')}>
         <div className={cx('wrapper-logo')}>
-          <img src={images.logo} alt="Logo" />
+          <Link to={routesConfig.home} className={cx('logo-link')}>
+            <img src={images.logo} alt="Logo" />
+          </Link>
         </div>
 
         <Search />

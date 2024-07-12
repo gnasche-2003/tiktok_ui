@@ -6,6 +6,7 @@
   --black-color: #000;
   --white-color: #fff;
   --text-color: #161823;
+  --font-family: 'IBM Plex Sans', san-serif;
   --scrollbar-color: rgba(240, 240, 240, 0.9);
 
   // Default Layout
@@ -26,7 +27,7 @@ html {
 }
 
 body {
-  font-family: 'IBM Plex Sans', san-serif;
+  font-family: var(--font-family);
   font-size: 1.6rem;
   line-height: 1.5;
   text-rendering: optimizespeed;
@@ -38,7 +39,7 @@ input,
 [tabindex] {
   outline: none;
   border: none;
-  font-family: inherit;
+  font-family: var(--font-family);
 }
 
 a[href] {

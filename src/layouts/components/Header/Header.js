@@ -16,10 +16,11 @@ import {
   LogOutIcon,
   MessageIcon,
   ProfileIcon,
-  FavoriteIcon,
-  KeyboardIcon,
+  // FavoriteIcon,
+  // KeyboardIcon,
   LanguageIcon,
   SettingsIcon,
+  CreatorToolsIcon,
   FeedbackAndHelpIcon,
 } from '~/components/Icons';
 
@@ -34,9 +35,19 @@ const cx = classNames.bind(styles);
 
 const MENU_ITEMS = [
   {
-    icon: <HubIcon />,
-    title: 'LIVE Creator Hub',
-    to: '/hub',
+    icon: <CreatorToolsIcon />,
+    title: 'Creator Tools',
+    children: {
+      title: 'Creator Tools',
+      data: [
+        {
+          icon: <StudioIcon />,
+          title: 'LIVE Studio',
+          to: '/studio',
+        },
+        { icon: <HubIcon />, title: 'LIVE Creator Hub', to: '/hub' },
+      ],
+    },
   },
 
   {
@@ -65,10 +76,10 @@ const MENU_ITEMS = [
     to: '/feedback',
   },
 
-  {
-    icon: <KeyboardIcon />,
-    title: 'Keyboard shortcuts',
-  },
+  // {
+  //   icon: <KeyboardIcon />,
+  //   title: 'Keyboard shortcuts',
+  // },
 
   {
     icon: <DarkIcon />,
@@ -116,22 +127,16 @@ function Header() {
       to: '/profile',
     },
 
-    {
-      icon: <FavoriteIcon />,
-      title: 'Favorites',
-      to: '/favorites',
-    },
+    // {
+    //   icon: <FavoriteIcon />,
+    //   title: 'Favorites',
+    //   to: '/favorites',
+    // },
 
     {
       icon: <CoinIcon />,
       title: 'Get Coins',
       to: '/coins',
-    },
-
-    {
-      icon: <StudioIcon />,
-      title: 'LIVE Studio',
-      to: '/studio',
     },
 
     ...MENU_ITEMS,

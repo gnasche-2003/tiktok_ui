@@ -187,7 +187,7 @@ function Header() {
                 Upload
               </Button>
 
-              <Button primary>Log In</Button>
+              <Button primary>Log in</Button>
             </>
           )}
 
